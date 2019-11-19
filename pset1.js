@@ -17,6 +17,14 @@
             or, 5! = 5*4*3*2*1
 */
 
+const factorial = (n) => {
+    if(n === 1) return 1;
+    return n * factorial(n - 1);
+}
+
+// console.log(factorial(5));
+// console.log(factorial(3));
+
 /*  2
     @function getInRange
     @param s {number}
@@ -31,6 +39,13 @@
         - remember to account for what happens if s > e!
 */
 
+const getInRange = (num1, num2, arr = []) => {
+    if(num1 > num2) return arr;
+    arr.push(num1)
+    return getInRange(num1 + 1, num2, arr);
+} 
+console.log(getInRange(2, 5));
+
 /*  3
     @function isEven
     @param n {number}
@@ -39,6 +54,15 @@
         - determine without using % operator or Math.floor(), etc
             whether or not a number is even
 */
+
+const isEven = n => {
+    if(Math.abs(n) === 0) return true;
+    else if(Math.abs(n) === 1) return false;
+    else return isEven(Math.abs(n) - 2);
+}
+console.log(isEven(-10));
+console.log(isEven(10));
+console.log(isEven(11));
 
 /*  4
     @function pow
